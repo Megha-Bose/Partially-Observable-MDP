@@ -1,0 +1,439 @@
+
+Updating belief with: R, Green
+
+State: 1
+Finding the summation of transition probabilities: 
+Transition to state 1: 0.21999999999999997
+Belief of state 1: 0.3333333333333333
+Product:  0.07333333333333332
+Transition to state 2: 0.21999999999999997
+Belief of state 2: 0.0
+Product:  0.0
+Transition to state 3: 0.0
+Belief of state 3: 0.3333333333333333
+Product:  0.0
+Transition to state 4: 0.0
+Belief of state 4: 0.0
+Product:  0.0
+Transition to state 5: 0.0
+Belief of state 5: 0.0
+Product:  0.0
+Transition to state 6: 0.0
+Belief of state 6: 0.3333333333333333
+Product:  0.0
+Summation of transition-prob-product: 0.07333333333333332
+
+State: 2
+Finding the summation of transition probabilities: 
+Transition to state 1: 0.78
+Belief of state 1: 0.3333333333333333
+Product:  0.26
+Transition to state 2: 0.0
+Belief of state 2: 0.0
+Product:  0.0
+Transition to state 3: 0.21999999999999997
+Belief of state 3: 0.3333333333333333
+Product:  0.07333333333333332
+Transition to state 4: 0.0
+Belief of state 4: 0.0
+Product:  0.0
+Transition to state 5: 0.0
+Belief of state 5: 0.0
+Product:  0.0
+Transition to state 6: 0.0
+Belief of state 6: 0.3333333333333333
+Product:  0.0
+Summation of transition-prob-product: 0.3333333333333333
+
+State: 3
+Finding the summation of transition probabilities: 
+Transition to state 1: 0.0
+Belief of state 1: 0.3333333333333333
+Product:  0.0
+Transition to state 2: 0.78
+Belief of state 2: 0.0
+Product:  0.0
+Transition to state 3: 0.0
+Belief of state 3: 0.3333333333333333
+Product:  0.0
+Transition to state 4: 0.21999999999999997
+Belief of state 4: 0.0
+Product:  0.0
+Transition to state 5: 0.0
+Belief of state 5: 0.0
+Product:  0.0
+Transition to state 6: 0.0
+Belief of state 6: 0.3333333333333333
+Product:  0.0
+Summation of transition-prob-product: 0.0
+
+State: 4
+Finding the summation of transition probabilities: 
+Transition to state 1: 0.0
+Belief of state 1: 0.3333333333333333
+Product:  0.0
+Transition to state 2: 0.0
+Belief of state 2: 0.0
+Product:  0.0
+Transition to state 3: 0.78
+Belief of state 3: 0.3333333333333333
+Product:  0.26
+Transition to state 4: 0.0
+Belief of state 4: 0.0
+Product:  0.0
+Transition to state 5: 0.21999999999999997
+Belief of state 5: 0.0
+Product:  0.0
+Transition to state 6: 0.0
+Belief of state 6: 0.3333333333333333
+Product:  0.0
+Summation of transition-prob-product: 0.26
+
+State: 5
+Finding the summation of transition probabilities: 
+Transition to state 1: 0.0
+Belief of state 1: 0.3333333333333333
+Product:  0.0
+Transition to state 2: 0.0
+Belief of state 2: 0.0
+Product:  0.0
+Transition to state 3: 0.0
+Belief of state 3: 0.3333333333333333
+Product:  0.0
+Transition to state 4: 0.78
+Belief of state 4: 0.0
+Product:  0.0
+Transition to state 5: 0.0
+Belief of state 5: 0.0
+Product:  0.0
+Transition to state 6: 0.21999999999999997
+Belief of state 6: 0.3333333333333333
+Product:  0.07333333333333332
+Summation of transition-prob-product: 0.07333333333333332
+
+State: 6
+Finding the summation of transition probabilities: 
+Transition to state 1: 0.0
+Belief of state 1: 0.3333333333333333
+Product:  0.0
+Transition to state 2: 0.0
+Belief of state 2: 0.0
+Product:  0.0
+Transition to state 3: 0.0
+Belief of state 3: 0.3333333333333333
+Product:  0.0
+Transition to state 4: 0.0
+Belief of state 4: 0.0
+Product:  0.0
+Transition to state 5: 0.78
+Belief of state 5: 0.0
+Product:  0.0
+Transition to state 6: 0.78
+Belief of state 6: 0.3333333333333333
+Product:  0.26
+Summation of transition-prob-product: 0.26
+
+#######
+Normalization(sum_belief): 0.7
+State values after dividing by normalization
+State: 1  New Belief: 0.020952380952380945
+State: 2  New Belief: 0.4523809523809524
+State: 3  New Belief: 0.0
+State: 4  New Belief: 0.35285714285714287
+State: 5  New Belief: 0.09952380952380951
+State: 6  New Belief: 0.07428571428571427
+
+[0.02095238 0.45238095 0.         0.35285714 0.09952381 0.07428571]
+
+Updating belief with: L, Red
+
+State: 1
+Finding the summation of transition probabilities: 
+Transition to state 1: 0.78
+Belief of state 1: 0.020952380952380945
+Product:  0.016342857142857138
+Transition to state 2: 0.78
+Belief of state 2: 0.4523809523809524
+Product:  0.35285714285714287
+Transition to state 3: 0.0
+Belief of state 3: 0.0
+Product:  0.0
+Transition to state 4: 0.0
+Belief of state 4: 0.35285714285714287
+Product:  0.0
+Transition to state 5: 0.0
+Belief of state 5: 0.09952380952380951
+Product:  0.0
+Transition to state 6: 0.0
+Belief of state 6: 0.07428571428571427
+Product:  0.0
+Summation of transition-prob-product: 0.36920000000000003
+
+State: 2
+Finding the summation of transition probabilities: 
+Transition to state 1: 0.21999999999999997
+Belief of state 1: 0.020952380952380945
+Product:  0.004609523809523807
+Transition to state 2: 0.0
+Belief of state 2: 0.4523809523809524
+Product:  0.0
+Transition to state 3: 0.78
+Belief of state 3: 0.0
+Product:  0.0
+Transition to state 4: 0.0
+Belief of state 4: 0.35285714285714287
+Product:  0.0
+Transition to state 5: 0.0
+Belief of state 5: 0.09952380952380951
+Product:  0.0
+Transition to state 6: 0.0
+Belief of state 6: 0.07428571428571427
+Product:  0.0
+Summation of transition-prob-product: 0.004609523809523807
+
+State: 3
+Finding the summation of transition probabilities: 
+Transition to state 1: 0.0
+Belief of state 1: 0.020952380952380945
+Product:  0.0
+Transition to state 2: 0.21999999999999997
+Belief of state 2: 0.4523809523809524
+Product:  0.09952380952380951
+Transition to state 3: 0.0
+Belief of state 3: 0.0
+Product:  0.0
+Transition to state 4: 0.78
+Belief of state 4: 0.35285714285714287
+Product:  0.27522857142857143
+Transition to state 5: 0.0
+Belief of state 5: 0.09952380952380951
+Product:  0.0
+Transition to state 6: 0.0
+Belief of state 6: 0.07428571428571427
+Product:  0.0
+Summation of transition-prob-product: 0.37475238095238095
+
+State: 4
+Finding the summation of transition probabilities: 
+Transition to state 1: 0.0
+Belief of state 1: 0.020952380952380945
+Product:  0.0
+Transition to state 2: 0.0
+Belief of state 2: 0.4523809523809524
+Product:  0.0
+Transition to state 3: 0.21999999999999997
+Belief of state 3: 0.0
+Product:  0.0
+Transition to state 4: 0.0
+Belief of state 4: 0.35285714285714287
+Product:  0.0
+Transition to state 5: 0.78
+Belief of state 5: 0.09952380952380951
+Product:  0.07762857142857142
+Transition to state 6: 0.0
+Belief of state 6: 0.07428571428571427
+Product:  0.0
+Summation of transition-prob-product: 0.07762857142857142
+
+State: 5
+Finding the summation of transition probabilities: 
+Transition to state 1: 0.0
+Belief of state 1: 0.020952380952380945
+Product:  0.0
+Transition to state 2: 0.0
+Belief of state 2: 0.4523809523809524
+Product:  0.0
+Transition to state 3: 0.0
+Belief of state 3: 0.0
+Product:  0.0
+Transition to state 4: 0.21999999999999997
+Belief of state 4: 0.35285714285714287
+Product:  0.07762857142857142
+Transition to state 5: 0.0
+Belief of state 5: 0.09952380952380951
+Product:  0.0
+Transition to state 6: 0.78
+Belief of state 6: 0.07428571428571427
+Product:  0.057942857142857136
+Summation of transition-prob-product: 0.13557142857142856
+
+State: 6
+Finding the summation of transition probabilities: 
+Transition to state 1: 0.0
+Belief of state 1: 0.020952380952380945
+Product:  0.0
+Transition to state 2: 0.0
+Belief of state 2: 0.4523809523809524
+Product:  0.0
+Transition to state 3: 0.0
+Belief of state 3: 0.0
+Product:  0.0
+Transition to state 4: 0.0
+Belief of state 4: 0.35285714285714287
+Product:  0.0
+Transition to state 5: 0.21999999999999997
+Belief of state 5: 0.09952380952380951
+Product:  0.02189523809523809
+Transition to state 6: 0.21999999999999997
+Belief of state 6: 0.07428571428571427
+Product:  0.016342857142857138
+Summation of transition-prob-product: 0.038238095238095224
+
+#######
+Normalization(sum_belief): 0.6366428571428571
+State values after dividing by normalization
+State: 1  New Belief: 0.46393358016380576
+State: 2  New Belief: 0.00036201802610419257
+State: 3  New Belief: 0.4709106548487229
+State: 4  New Belief: 0.006096712666891064
+State: 5  New Belief: 0.010647369011556164
+State: 6  New Belief: 0.048049665282920075
+
+[4.63933580e-01 3.62018026e-04 4.70910655e-01 6.09671267e-03
+ 1.06473690e-02 4.80496653e-02]
+
+Updating belief with: L, Green
+
+State: 1
+Finding the summation of transition probabilities: 
+Transition to state 1: 0.78
+Belief of state 1: 0.46393358016380576
+Product:  0.36186819252776853
+Transition to state 2: 0.78
+Belief of state 2: 0.00036201802610419257
+Product:  0.0002823740603612702
+Transition to state 3: 0.0
+Belief of state 3: 0.4709106548487229
+Product:  0.0
+Transition to state 4: 0.0
+Belief of state 4: 0.006096712666891064
+Product:  0.0
+Transition to state 5: 0.0
+Belief of state 5: 0.010647369011556164
+Product:  0.0
+Transition to state 6: 0.0
+Belief of state 6: 0.048049665282920075
+Product:  0.0
+Summation of transition-prob-product: 0.3621505665881298
+
+State: 2
+Finding the summation of transition probabilities: 
+Transition to state 1: 0.21999999999999997
+Belief of state 1: 0.46393358016380576
+Product:  0.10206538763603726
+Transition to state 2: 0.0
+Belief of state 2: 0.00036201802610419257
+Product:  0.0
+Transition to state 3: 0.78
+Belief of state 3: 0.4709106548487229
+Product:  0.3673103107820039
+Transition to state 4: 0.0
+Belief of state 4: 0.006096712666891064
+Product:  0.0
+Transition to state 5: 0.0
+Belief of state 5: 0.010647369011556164
+Product:  0.0
+Transition to state 6: 0.0
+Belief of state 6: 0.048049665282920075
+Product:  0.0
+Summation of transition-prob-product: 0.46937569841804117
+
+State: 3
+Finding the summation of transition probabilities: 
+Transition to state 1: 0.0
+Belief of state 1: 0.46393358016380576
+Product:  0.0
+Transition to state 2: 0.21999999999999997
+Belief of state 2: 0.00036201802610419257
+Product:  7.964396574292236e-05
+Transition to state 3: 0.0
+Belief of state 3: 0.4709106548487229
+Product:  0.0
+Transition to state 4: 0.78
+Belief of state 4: 0.006096712666891064
+Product:  0.00475543588017503
+Transition to state 5: 0.0
+Belief of state 5: 0.010647369011556164
+Product:  0.0
+Transition to state 6: 0.0
+Belief of state 6: 0.048049665282920075
+Product:  0.0
+Summation of transition-prob-product: 0.004835079845917952
+
+State: 4
+Finding the summation of transition probabilities: 
+Transition to state 1: 0.0
+Belief of state 1: 0.46393358016380576
+Product:  0.0
+Transition to state 2: 0.0
+Belief of state 2: 0.00036201802610419257
+Product:  0.0
+Transition to state 3: 0.21999999999999997
+Belief of state 3: 0.4709106548487229
+Product:  0.10360034406671903
+Transition to state 4: 0.0
+Belief of state 4: 0.006096712666891064
+Product:  0.0
+Transition to state 5: 0.78
+Belief of state 5: 0.010647369011556164
+Product:  0.008304947829013809
+Transition to state 6: 0.0
+Belief of state 6: 0.048049665282920075
+Product:  0.0
+Summation of transition-prob-product: 0.11190529189573284
+
+State: 5
+Finding the summation of transition probabilities: 
+Transition to state 1: 0.0
+Belief of state 1: 0.46393358016380576
+Product:  0.0
+Transition to state 2: 0.0
+Belief of state 2: 0.00036201802610419257
+Product:  0.0
+Transition to state 3: 0.0
+Belief of state 3: 0.4709106548487229
+Product:  0.0
+Transition to state 4: 0.21999999999999997
+Belief of state 4: 0.006096712666891064
+Product:  0.0013412767867160339
+Transition to state 5: 0.0
+Belief of state 5: 0.010647369011556164
+Product:  0.0
+Transition to state 6: 0.78
+Belief of state 6: 0.048049665282920075
+Product:  0.03747873892067766
+Summation of transition-prob-product: 0.03882001570739369
+
+State: 6
+Finding the summation of transition probabilities: 
+Transition to state 1: 0.0
+Belief of state 1: 0.46393358016380576
+Product:  0.0
+Transition to state 2: 0.0
+Belief of state 2: 0.00036201802610419257
+Product:  0.0
+Transition to state 3: 0.0
+Belief of state 3: 0.4709106548487229
+Product:  0.0
+Transition to state 4: 0.0
+Belief of state 4: 0.006096712666891064
+Product:  0.0
+Transition to state 5: 0.21999999999999997
+Belief of state 5: 0.010647369011556164
+Product:  0.0023424211825423557
+Transition to state 6: 0.21999999999999997
+Belief of state 6: 0.048049665282920075
+Product:  0.010570926362242414
+Summation of transition-prob-product: 0.01291334754478477
+
+#######
+Normalization(sum_belief): 0.6650757545158757
+State values after dividing by normalization
+State: 1  New Belief: 0.10890505754543635
+State: 2  New Belief: 0.6704603354872336
+State: 3  New Belief: 0.0014539937181855377
+State: 4  New Belief: 0.1598464935446816
+State: 5  New Belief: 0.05545084852607371
+State: 6  New Belief: 0.003883271178389204
+
+[0.10890506 0.67046034 0.00145399 0.15984649 0.05545085 0.00388327]
