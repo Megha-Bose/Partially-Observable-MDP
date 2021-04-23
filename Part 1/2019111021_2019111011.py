@@ -18,6 +18,11 @@ y = 4
 rr_prob = 0.8
 gg_prob = 0.95
 
+# Gokul
+# x = 0.8
+# y = 2
+# rr_prob = 0.9
+# gg_prob = 0.95
 
 def truncate(number, digits) -> float:
     stepper = 10.0 ** digits
@@ -57,22 +62,36 @@ def initialise():
 
 def update_belief(a, o):
     global belief, action, colour, obs_prob
+    print()
+    print("Updating belief with: " + a + ", " + o)
     new_belief = numpy.zeros(num_states + 1)
     act = action[a]
     obs = colour[o]
     sum_belief = 0
     for state in states:
+        print("\nState: " + str(state))
         prob_st_act = 0
+        print("Finding the summation of transition probabilities: ")
         for st in states:
             prob_st_act += (belief[st] * trans_prob[st][act][state])
+            print("Transition to state "+ str(st) +": " + str(trans_prob[st][act][state]))
+            print("Belief of state " + str(st) + ": " + str(belief[st]))
+            print("Product:  " + str(belief[st] * trans_prob[st][act][state]))
+        print("Summation of transition-prob-product: " + str(prob_st_act))
+        
         if state in red_states:
             new_belief[state] = (obs_prob[colour["Red"]][obs] * prob_st_act)
         else:
             new_belief[state] = (obs_prob[colour["Green"]][obs] * prob_st_act)
         sum_belief += new_belief[state]
+        
+    print("\n#######\nNormalization(sum_belief): " + str(sum_belief))
+    print("State values after dividing by normalization")
     for state in states:
         new_belief[state] = new_belief[state] / sum_belief
+        print("State: " + str(state) + "  New Belief: " + str(new_belief[state]))
     belief = new_belief
+    print()
 
 def print_belief():
     global belief
@@ -102,7 +121,3 @@ if __name__ == "__main__":
         update_belief(act, obs)
         print_belief()
         output_belief()
-
-    
-        
-
