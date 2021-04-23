@@ -82,7 +82,7 @@ def initialise_output():
     global x, y
     text_file = open("2019111021_2019111011.txt", "w")
     text_file.write("2019111021 2019111011")
-    text_file.write("\n%f %d" % (x, y))
+    text_file.write("\n%.2f %d" % (x, y))
     text_file.close()
 
 def output_belief():
