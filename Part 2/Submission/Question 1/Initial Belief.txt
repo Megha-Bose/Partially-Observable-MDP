@@ -1,4 +1,4 @@
 The following states are equiprobable initially while all other states have probability zero: 
-s_0-1_1-0_0 s_0-1_1-0_1 s_2-1_1-0_0 s_2-1_1-0_1 s_3-0_1-0_0 s_3-0_1-0_1 s_3-1_1-0_0 s_3-1_1-0_1 
+s_0-1_1-0_0 s_0-1_1-0_1 s_0-2_1-0_0 s_0-2_1-0_1 s_0-3_1-0_0 s_0-3_1-0_1 s_1-2_1-0_0 s_1-2_1-0_1 s_1-3_1-0_0 s_1-3_1-0_1
 
-The belief of each of the states above is 1/8 = 0.125
+The belief of each of the states above is 1/10 = 0.1
