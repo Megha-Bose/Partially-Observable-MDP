@@ -105,27 +105,86 @@ def print_start_states():
 def move_agent(x, y, action):
 
 
-def move_target(x, y):
 
+def move_target(x, y):
+    global target_stay_prob, m, n
+    nxt_pos = []
+    prob = []
+
+    nxt_pos.append((x, y))
+    prob.append(target_stay_prob)
+    if x + 1 >= n:
+        nxt_pos.append((x, y))
+        prob.append()
+    else:
+        nxt_pos.append((x, y))
+        prob.append()
+
+    
+
+    if x - 1 <= 0:
+        nxt_pos.append((x, y))
+        prob.append()
+    else:
+        nxt_pos.append((x, y))
+        prob.append()
+
+
+
+    if y + 1 >= m:
+        nxt_pos.append((x, y))
+        prob.append()
+    else:
+        nxt_pos.append((x, y))
+        prob.append()
+
+
+
+    if y - 1 <= 0:
+        nxt_pos.append((x, y))
+        prob.append()
+    else:
+        nxt_pos.append((x, y))
+        prob.append()
+        
 
 
 def print_transition(agent_x, agent_y, target_x, target_y, call, action):
     start_state = get_state(agent_x, agent_y, target_x, target_y, call)
     agent_next_pos, agent_prob = move_agent(agent_x, agent_y, action)
-    agent_nxt_len = len(agent_pos)
+    agent_nxt_len = len(agent_next_pos)
     for i in range(agent_nxt_len):
         for next_call in range(0, 2):
             call_prob = 0
 
-            # Todo
+            if agent_x == target_x and agent_y == target_y:
+                if call == 1 and next_call == 0:
+                    call_prob = 1.0
+                elif call == 0:
+                    if next_call == 1:
+                        call_prob = target_call_on_prob
+                    else:
+                        call_prob = 1 - target_call_on_prob
+            else:
+                if next_call == 1:
+                    if call == 0:
+                        call_prob = target_call_on_prob
+                    else:
+                        call_prob = 1 - target_call_off_prob
+                else:
+                    if call == 0:
+                        call_prob = 1 - target_call_on_prob
+                    else:
+                        call_prob = target_call_off_prob
+                        
 
             target_next_pos, target_prob = move_target(target_x, target_y)
             
-            target_nxt_len = len(target_pos)
+            target_nxt_len = len(target_next_pos)
 
-            for j in range(target_nxt_len)):
+            for j in range(target_nxt_len):
                 total_prob = agent_prob[i] * target_prob[j] * call_prob
-                end_state = get_state(agent_pos[i][0], agent_pos[i][1], target_pos[i][0], target_pos[i][1], next_call)
+                end_state = get_state(agent_next_pos[i][0], agent_next_pos[i][1], target_next_pos[i][0], target_next_pos[i][1], next_call)
 
                 print("T: {0} : {1} : {2} {3}".format(action, start_state, end_state, total_prob))
 
