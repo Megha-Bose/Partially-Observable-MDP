@@ -27,6 +27,9 @@ agent_move_prob = x
 start_target_x = 1
 start_target_y = 0
 
+all_states = []
+initial_states = []
+
 
 def get_state(x1, y1, x2, y2, c):
     return 's_' + str(x1)+'-'+str(y1)+'_'+str(x2)+'-'+str(y2)+'_'+str(c)
@@ -69,6 +72,7 @@ def print_states():
                     for call in range(0, 2):
                         state = get_state(agent_x, agent_y,
                                           target_x, target_y, call)
+                        all_states.append(state)
                         print(state, end=" ")
     print("")
 
@@ -95,25 +99,35 @@ def get_targets():
 
 
 def print_start_states():
-    global m, n, start_target_x, start_target_y
-    print("start include: ", end="")
+    global m, n, start_target_x, start_target_y, all_states
+    print("start: ", end="")
     
     targets = get_targets()
     # Case 1: agent in (0, 0)
-    agent_x = 1
-    agent_y = 1
+    agent_x = 0
+    agent_y = 0
+    state_prob = 0.4*0.25
     for (target_x, target_y) in targets:
         call = 0
         state = get_state(agent_x, agent_y, target_x, target_y, call)
-        print(state, end=" ")
+        initial_states.append((state, state_prob))
     # Case 2: agent in (1, 3)
     agent_x = 1
-    agent_y = 1
+    agent_y = 3
+    state_prob = 0.6*0.25
     for (target_x, target_y) in targets:
         call = 0
         state = get_state(agent_x, agent_y, target_x, target_y, call)
-        print(state, end=" ")
+        initial_states.append((state, state_prob))
+
+    for glob_state in all_states:
+        prob = 0
+        for x in initial_states:
+            if x[0] == glob_state:
+                prob = x[1]
+        print(prob, end=" ")
     print("")
+    
 
 def move_agent(x, y, action):
     global agent_move_prob, m, n
@@ -308,6 +322,6 @@ def print_pomdp():
 
 
 if __name__ == "__main__":
-    sys.stdout = open('../POMDP/p2.pomdp', 'w')
+    sys.stdout = open('../POMDP/p4.pomdp', 'w')
     print_pomdp()
     sys.stdout.close()
