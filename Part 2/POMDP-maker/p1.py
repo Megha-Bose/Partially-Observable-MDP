@@ -29,7 +29,7 @@ start_target_y = 0
 
 
 def get_state(x1, y1, x2, y2, c):
-    return 's_(' + str(x1)+','+str(y1)+')_('+str(x2)+','+str(y2)+')_'+str(c)
+    return 's_' + str(x1)+'-'+str(y1)+'_'+str(x2)+'-'+str(y2)+'_'+str(c)
 
 
 def get_observation(x1, y1, x2, y2):
@@ -98,8 +98,7 @@ def print_start_states():
             for call in range(0, 2):
                 obs = get_observation(agent_x, agent_y, target_x, target_y)
                 if obs == "o6":
-                    state = get_state(agent_x, agent_y,
-                                      target_x, target_y, call)
+                    state = get_state(agent_x, agent_y, target_x, target_y, call)
                     print(state, end=" ")
     print("")
 
@@ -235,14 +234,12 @@ def print_transition(agent_x, agent_y, target_x, target_y, call, action):
             target_next_pos, target_prob = move_target(target_x, target_y)
 
             target_nxt_len = len(target_next_pos)
-
+            # print(target_next_pos)
             for j in range(target_nxt_len):
                 total_prob = agent_prob[i] * target_prob[j] * call_prob
-                end_state = get_state(
-                    agent_next_pos[i][0], agent_next_pos[i][1], target_next_pos[i][0], target_next_pos[i][1], next_call)
+                end_state = get_state(agent_next_pos[i][0], agent_next_pos[i][1], target_next_pos[j][0], target_next_pos[j][1], next_call)
 
-                print("T: {0} : {1} : {2} {3}".format(
-                    action, start_state, end_state, total_prob))
+                print("T: {0} : {1} : {2} {3}".format(action, start_state, end_state, total_prob))
 
 
 def print_transition_matrix():
@@ -253,8 +250,7 @@ def print_transition_matrix():
                 for target_x in range(0, n):
                     for target_y in range(0, m):
                         for call in range(0, 2):
-                            print_transition(agent_x, agent_y,
-                                             target_x, target_y, call, action)
+                            print_transition(agent_x, agent_y, target_x, target_y, call, action)
 
 
 def print_observation_probs():
@@ -280,14 +276,11 @@ def print_rewards():
                 for target_x in range(0, n):
                     for target_y in range(0, m):
                         for call in range(0, 2):
-                            end_state = get_state(
-                                agent_x, agent_y, target_x, target_y, call)
+                            end_state = get_state(agent_x, agent_y, target_x, target_y, call)
                             if agent_x == target_x and agent_y == target_y and call == 1:
-                                print(
-                                    "R: {0} : * : {1} : * {2}".format(action, end_state, track_reward))
+                                print("R: {0} : * : {1} : * {2}".format(action, end_state, track_reward))
                             elif action != "stay":
-                                print(
-                                    "R: {0} : * : {1} : * {2}".format(action, end_state, step_cost))
+                                print("R: {0} : * : {1} : * {2}".format(action, end_state, step_cost))
 
 
 def print_pomdp():
