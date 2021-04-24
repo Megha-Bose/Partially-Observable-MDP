@@ -35,13 +35,13 @@ def get_state(x1, y1, x2, y2, c):
 def get_observation(x1, y1, x2, y2):
     if x1 == x2 and y1 == y2:
         obs = "o1"
-    elif x1 == x2 - 1 and y1 == y2:
+    elif x1 == x2 + 1 and y1 == y2: # target above  agent
         obs = "o5"
-    elif x1 == x2 and y1 == y2 + 1:
+    elif x1 == x2 and y1 == y2 + 1: # target to the left of  agent
         obs = "o4"
-    elif x1 == x2 + 1 and y1 == y2:
+    elif x1 == x2 - 1 and y1 == y2: # target below  agent
         obs = "o3"
-    elif x1 == x2 and y1 == y2 - 1:
+    elif x1 == x2 and y1 == y2 - 1: # target to the right of  agent
         obs = "o2"
     else:
         obs = "o6"

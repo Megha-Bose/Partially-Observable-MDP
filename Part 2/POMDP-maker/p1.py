@@ -7,9 +7,9 @@ values = "reward"
 actions = np.array(["stay", "up", "down", "left", "right"])
 observations = np.array(['o1', 'o2', 'o3', 'o4', 'o5', 'o6'])
 
-# m x n grid
-m = 2
-n = 4
+# n x m grid
+n = 2
+m = 4
 
 target_move_prob = 0.1
 target_stay_prob = 0.6
@@ -31,18 +31,17 @@ start_target_y = 0
 def get_state(x1, y1, x2, y2, c):
     return 's_' + str(x1)+'-'+str(y1)+'_'+str(x2)+'-'+str(y2)+'_'+str(c)
 
-
 def get_observation(x1, y1, x2, y2):
     if x1 == x2 and y1 == y2:
         obs = "o1"
-    elif x1 == x2 - 1 and y1 == y2:
-        obs = "o2"
-    elif x1 == x2 and y1 == y2 + 1:
-        obs = "o3"
-    elif x1 == x2 + 1 and y1 == y2:
-        obs = "o4"
-    elif x1 == x2 and y1 == y2 - 1:
+    elif x1 == x2 + 1 and y1 == y2: # target above  agent
         obs = "o5"
+    elif x1 == x2 and y1 == y2 + 1: # target to the left of  agent
+        obs = "o4"
+    elif x1 == x2 - 1 and y1 == y2: # target below  agent
+        obs = "o3"
+    elif x1 == x2 and y1 == y2 - 1: # target to the right of  agent
+        obs = "o2"
     else:
         obs = "o6"
     return obs
@@ -115,7 +114,7 @@ def move_agent(x, y, action):
 
     move_fail_prob = 1-agent_move_prob
 
-    if action == "up":
+    if action == "right":
         if y + 1 >= m:
             nxt_pos.append((x, y))
         else:
@@ -125,21 +124,21 @@ def move_agent(x, y, action):
             nxt_pos.append((x, y))
         else:
             nxt_pos.append((x, y-1))
+        prob.append(move_fail_prob)
+
+    if action == "left":
+        if y - 1 < 0:
+            nxt_pos.append((x, y))
+        else:
+            nxt_pos.append((x, y-1))
+        prob.append(agent_move_prob)
+        if y + 1 >= m:
+            nxt_pos.append((x, y))
+        else:
+            nxt_pos.append((x, y+1))
         prob.append(move_fail_prob)
 
     if action == "down":
-        if y - 1 < 0:
-            nxt_pos.append((x, y))
-        else:
-            nxt_pos.append((x, y-1))
-        prob.append(agent_move_prob)
-        if y + 1 >= m:
-            nxt_pos.append((x, y))
-        else:
-            nxt_pos.append((x, y+1))
-        prob.append(move_fail_prob)
-
-    if action == "right":
         if x + 1 >= n:
             nxt_pos.append((x, y))
         else:
@@ -151,7 +150,7 @@ def move_agent(x, y, action):
             nxt_pos.append((x-1, y))
         prob.append(move_fail_prob)
 
-    if action == "left":
+    if action == "up":
         if x - 1 < 0:
             nxt_pos.append((x, y))
         else:
