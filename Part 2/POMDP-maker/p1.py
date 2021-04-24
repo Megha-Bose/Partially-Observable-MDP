@@ -66,7 +66,8 @@ def print_states():
             for target_x in range(0, n):
                 for target_y in range(0, m):
                     for call in range(0, 2):
-                        state = get_state(agent_x, agent_y, target_x, target_y, call)
+                        state = get_state(agent_x, agent_y,
+                                          target_x, target_y, call)
                         print(state, end=" ")
     print("")
 
@@ -90,63 +91,117 @@ def print_observations():
 def print_start_states():
     global m, n, start_target_x, start_target_y
     print("start include: ", end="")
-    for agent_x in range(0, n): 
+    for agent_x in range(0, n):
         for agent_y in range(0, m):
             target_x = start_target_x
             target_y = start_target_y
             for call in range(0, 2):
                 obs = get_observation(agent_x, agent_y, target_x, target_y)
                 if obs == "o6":
-                    state = get_state(agent_x, agent_y, target_x, target_y, call)
+                    state = get_state(agent_x, agent_y,
+                                      target_x, target_y, call)
                     print(state, end=" ")
     print("")
 
 
 def move_agent(x, y, action):
-
-
-
-def move_target(x, y):
-    global target_stay_prob, m, n
+    global agent_move_prob, m, n
     nxt_pos = []
     prob = []
 
-    nxt_pos.append((x, y))
-    prob.append(target_stay_prob)
+    # Stay
+    if action == "stay":
+        nxt_pos.append((x, y))
+        prob.append(1)
+
+    move_fail_prob = 1-agent_move_prob
+
+    if action == "up":
+        if y + 1 >= m:
+            nxt_pos.append((x, y))
+        else:
+            nxt_pos.append((x, y+1))
+        prob.append(agent_move_prob)
+        if y - 1 < 0:
+            nxt_pos.append((x, y))
+        else:
+            nxt_pos.append((x, y-1))
+        prob.append(move_fail_prob)
+
+    if action == "down":
+        if y - 1 < 0:
+            nxt_pos.append((x, y))
+        else:
+            nxt_pos.append((x, y-1))
+        prob.append(agent_move_prob)
+        if y + 1 >= m:
+            nxt_pos.append((x, y))
+        else:
+            nxt_pos.append((x, y+1))
+        prob.append(move_fail_prob)
+
+    if action == "right":
+        if x + 1 >= n:
+            nxt_pos.append((x, y))
+        else:
+            nxt_pos.append((x+1, y))
+        prob.append(agent_move_prob)
+        if x - 1 < 0:
+            nxt_pos.append((x, y))
+        else:
+            nxt_pos.append((x-1, y))
+        prob.append(move_fail_prob)
+
+    if action == "left":
+        if x - 1 < 0:
+            nxt_pos.append((x, y))
+        else:
+            nxt_pos.append((x-1, y))
+        prob.append(agent_move_prob)
+        if x + 1 >= n:
+            nxt_pos.append((x, y))
+        else:
+            nxt_pos.append((x+1, y))
+        prob.append(move_fail_prob)
+
+    return nxt_pos, prob
+
+
+def move_target(x, y):
+    global target_stay_prob, target_move_prob
+    global m, n
+    nxt_pos = []
+    prob = []
+
+    stay_prob = target_stay_prob
     if x + 1 >= n:
-        nxt_pos.append((x, y))
-        prob.append()
+        stay_prob += target_move_prob
     else:
-        nxt_pos.append((x, y))
-        prob.append()
+        nxt_pos.append((x + 1, y))
+        prob.append(target_move_prob)
 
-    
-
-    if x - 1 <= 0:
-        nxt_pos.append((x, y))
-        prob.append()
+    if x - 1 < 0:
+        stay_prob += target_move_prob
     else:
-        nxt_pos.append((x, y))
-        prob.append()
-
-
+        nxt_pos.append((x - 1, y))
+        prob.append(target_move_prob)
 
     if y + 1 >= m:
-        nxt_pos.append((x, y))
-        prob.append()
+        stay_prob += target_move_prob
     else:
-        nxt_pos.append((x, y))
-        prob.append()
+        nxt_pos.append((x, y + 1))
+        prob.append(target_move_prob)
 
-
-
-    if y - 1 <= 0:
-        nxt_pos.append((x, y))
-        prob.append()
+    if y - 1 < 0:
+        stay_prob += target_move_prob
     else:
-        nxt_pos.append((x, y))
-        prob.append()
-        
+        nxt_pos.append((x, y - 1))
+        prob.append(target_move_prob)
+
+    nxt_pos.append((x, y))
+    prob.append(stay_prob)
+
+    return nxt_pos, prob
 
 
 def print_transition(agent_x, agent_y, target_x, target_y, call, action):
@@ -176,18 +231,18 @@ def print_transition(agent_x, agent_y, target_x, target_y, call, action):
                         call_prob = 1 - target_call_on_prob
                     else:
                         call_prob = target_call_off_prob
-                        
 
             target_next_pos, target_prob = move_target(target_x, target_y)
-            
+
             target_nxt_len = len(target_next_pos)
 
             for j in range(target_nxt_len):
                 total_prob = agent_prob[i] * target_prob[j] * call_prob
-                end_state = get_state(agent_next_pos[i][0], agent_next_pos[i][1], target_next_pos[i][0], target_next_pos[i][1], next_call)
+                end_state = get_state(
+                    agent_next_pos[i][0], agent_next_pos[i][1], target_next_pos[i][0], target_next_pos[i][1], next_call)
 
-                print("T: {0} : {1} : {2} {3}".format(action, start_state, end_state, total_prob))
-
+                print("T: {0} : {1} : {2} {3}".format(
+                    action, start_state, end_state, total_prob))
 
 
 def print_transition_matrix():
@@ -198,8 +253,9 @@ def print_transition_matrix():
                 for target_x in range(0, n):
                     for target_y in range(0, m):
                         for call in range(0, 2):
-                            print_transition(agent_x, agent_y, target_x, target_y, call, action)
-                            
+                            print_transition(agent_x, agent_y,
+                                             target_x, target_y, call, action)
+
 
 def print_observation_probs():
     global m, n
@@ -208,8 +264,10 @@ def print_observation_probs():
             for target_x in range(0, n):
                 for target_y in range(0, m):
                     for call in range(0, 2):
-                        end_state = get_state(agent_x, agent_y, target_x, target_y, call)
-                        obs = get_observation(agent_x, agent_y, target_x, target_y)
+                        end_state = get_state(
+                            agent_x, agent_y, target_x, target_y, call)
+                        obs = get_observation(
+                            agent_x, agent_y, target_x, target_y)
 
                         print("O: * : {0} : {1} 1.0".format(end_state, obs))
 
@@ -222,12 +280,14 @@ def print_rewards():
                 for target_x in range(0, n):
                     for target_y in range(0, m):
                         for call in range(0, 2):
-                            end_state = get_state(agent_x, agent_y, target_x, target_y, call)
+                            end_state = get_state(
+                                agent_x, agent_y, target_x, target_y, call)
                             if agent_x == target_x and agent_y == target_y and call == 1:
-                                print("R: {0} : * : {1} : * {2}".format(action, end_state, track_reward))
+                                print(
+                                    "R: {0} : * : {1} : * {2}".format(action, end_state, track_reward))
                             elif action != "stay":
-                                print("R: {0} : * : {1} : * {2}".format(action, end_state, step_cost))
-
+                                print(
+                                    "R: {0} : * : {1} : * {2}".format(action, end_state, step_cost))
 
 
 def print_pomdp():
